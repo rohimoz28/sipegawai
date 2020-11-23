@@ -15,3 +15,4 @@
 Route::get('/', 'PagesController@home');
 
 Route::get('/workers', 'WorkersController@index');
+Route::get('/workers/{worker}', 'WorkersController@show');

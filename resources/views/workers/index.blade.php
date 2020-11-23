@@ -12,7 +12,7 @@
             @foreach($workers as $worker)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 {{ $worker->nama }}
-                <span class="badge badge-primary badge-pill">Detail</span>
+                <a href="/workers/{{ $worker->id }}" class="badge badge-info">Detail</a>
             </li>
             @endforeach
         </ul>

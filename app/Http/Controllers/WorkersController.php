@@ -50,7 +50,8 @@ class WorkersController extends Controller
      */
     public function show(Worker $worker)
     {
-        //
+
+        return view('/workers/show', compact('worker'));
     }
 
     /**
