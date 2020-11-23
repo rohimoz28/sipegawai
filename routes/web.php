@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route Handle Halaman Utama
+Route::get('/', 'PagesController@home');
+
+Route::get('/workers', 'WorkersController@index');
