@@ -6,7 +6,7 @@
     <div class="container">
         <h2 class="my-3">Daftar Pegawai</h2>
 
-        <a href="" class="btn btn-success my-3">Tambah Data Pegawai</a>
+        <a href="workers/create" class="btn btn-success my-3">Tambah Data Pegawai</a>
 
         <ul class="list-group col-7">
             @foreach($workers as $worker)
