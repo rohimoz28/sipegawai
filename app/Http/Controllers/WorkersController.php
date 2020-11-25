@@ -39,7 +39,8 @@ class WorkersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Worker::create(($request->all()));
+        return redirect('/workers')->with('status', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -85,6 +86,7 @@ class WorkersController extends Controller
      */
     public function destroy(Worker $worker)
     {
-        //
+        Worker::destroy($worker->id);
+        return redirect('/workers')->with('status', 'Data berhasil dihapus!');
     }
 }
