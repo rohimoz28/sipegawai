@@ -19,3 +19,4 @@ Route::get('/workers/create', 'WorkersController@create');
 Route::post('/workers', 'WorkersController@store');
 Route::get('/workers/{worker}', 'WorkersController@show');
 Route::delete('/workers/{worker}', 'WorkersController@destroy');
+Route::get('/workers/{worker}/edit', 'WorkersController@edit');

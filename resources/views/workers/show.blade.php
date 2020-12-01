@@ -14,7 +14,7 @@
                 <p class="card-text">Departemen: {{ $worker->departemen }}</p>
                 <p class="card-text">Jabatan: {{ $worker->jabatan }}</p>
 
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <a href="{{ $worker->id }}/edit" class="btn btn-primary">Edit</a>
 
                 <form action="{{ $worker->id }}" method="post" class="d-inline">
                     @method('delete')
