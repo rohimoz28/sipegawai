@@ -75,7 +75,14 @@ class WorkersController extends Controller
      */
     public function update(Request $request, Worker $worker)
     {
-        //
+        Worker::where('id', $worker->id)->update([
+            'nama' => $request->nama,
+            'nip' => $request->nip,
+            'departemen' => $request->departemen,
+            'jabatan' => $request->jabatan
+        ]);
+
+        return view('/workers/show', compact('worker'));
     }
 
     /**
