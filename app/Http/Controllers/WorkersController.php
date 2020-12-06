@@ -92,6 +92,21 @@ class WorkersController extends Controller
      */
     public function update(Request $request, Worker $worker)
     {
+        $request->validate(
+            [
+                'nama' => ['required'],
+                'nip' => ['required', 'max:6', 'unique:workers'],
+                'departemen' => ['required'],
+                'jabatan' => ['required']
+            ],
+            [
+                'nama.required' => 'Kolom nama harus di isi',
+                'nip.required' => 'Kolom NIP harus di isi',
+                'departemen.required' => 'Kolom departemen harus di isi',
+                'jabatan.required' => 'Kolom jabatan harus di isi'
+            ]
+        );
+
         Worker::where('id', $worker->id)->update([
             'nama' => $request->nama,
             'nip' => $request->nip,
