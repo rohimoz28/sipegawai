@@ -39,8 +39,25 @@ class WorkersController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi
+        $request->validate(
+            [
+                'nama' => ['required'],
+                'nip' => ['required', 'max:6', 'unique:workers'],
+                'departemen' => ['required'],
+                'jabatan' => ['required']
+            ],
+            [
+                'nama.required' => 'Kolom nama harus di isi',
+                'nip.required' => 'Kolom NIP harus di isi',
+                'nip.unique' => 'Nomer id sudah ada, pilih nomer lain',
+                'departemen' => 'Kolom departemen harus di isi',
+                'jabatan' => 'Kolom jabatan harus di isi'
+            ]
+        );
+
         Worker::create(($request->all()));
-        return redirect('/workers')->with('status', 'Data berhasil ditambahkan!');
+        return redirect('/workers')->with('status', 'Data pegawai berhasil ditambahkan!');
     }
 
     /**
@@ -63,7 +80,7 @@ class WorkersController extends Controller
      */
     public function edit(Worker $worker)
     {
-        return view('workers/edit', compact('worker'));
+        return view('/workers/edit', compact('worker'));
     }
 
     /**
@@ -82,7 +99,7 @@ class WorkersController extends Controller
             'jabatan' => $request->jabatan
         ]);
 
-        return view('/workers/show', compact('worker'));
+        return redirect('/workers')->with('status', 'Data Pegawai Behasil Di Ubah!');
     }
 
     /**
